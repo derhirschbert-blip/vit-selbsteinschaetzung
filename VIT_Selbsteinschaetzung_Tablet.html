@@ -739,6 +739,14 @@ document.getElementById("zp-row").querySelectorAll(".zp-btn").forEach(btn => {
 
 renderHandlungsfelder();
 update();
+
+// Service Worker registrieren
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .catch(err => console.log('SW Fehler:', err));
+  });
+}
 </script>
 </body>
 </html>
